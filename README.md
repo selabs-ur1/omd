@@ -425,3 +425,16 @@ Voila, votre runner est maintenant prêt!
 ### Configuration de votre pipeline
 
 GitLab utilise le fichier ".gitlab-ci.yml" pour faire fonctionner le pipeline de l'Intégration Continue pour chaque projet. Le fichier ".gitlab-ci.yml" doit se trouver dans le répertoire racine de votre projet. 
+
+ java:
+  stage: test
+  script:
+    - mvn verify
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+        - target/failsafe-reports/TEST-*.xml
+
+Definissez un pipeline similaire à celui définit pour Jenkins dans la partie précédente. Aidez vous de la [documentation](https://docs.gitlab.com/ee/ci/yaml/).
