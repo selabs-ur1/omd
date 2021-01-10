@@ -113,7 +113,7 @@ Votre projet est configuré.
 
 Intégrer à votre projet le fichier [ici](https://gist.github.com/combemale/54a8f2d29aba087627e6bf73eba3baa3).
 
-Vous verrez que le code ne compile pas car il manque une dépendances. Intégrez maintenant la dépendance à itext. 
+Vous verrez que le code ne compile pas car il manque une dépendances. Intégrez maintenant la dépendance (_\<dependencies>...\<dependencies>_) à itext dans le fichier _pom.xml_.
 
     <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
     <dependency>
