@@ -5,8 +5,8 @@ Introduction à la gestion de versions, la gestion de dépendances et l'intégra
 ## Objectifs du TP
 
 - Comprendre le fonctionnement de maven, configurer un projet de développement, utiliser les artifacts, et générer des rapports
-- Utiliser Git pour sauvegarder et collaborer sur le code source de votre projet
-- Utiliser un système d’intégration continue
+- Utiliser Git pour sauvegarder et collaborer sur le code source de votre projet, au travers des forges telles que Github et Gitlab
+- Utiliser un système d’intégration continue tel que Sonar, Jenkins et Gitlab CI
 
 ## Partie 1 : Utilisation de Maven
 
