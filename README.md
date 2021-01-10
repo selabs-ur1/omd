@@ -344,18 +344,18 @@ Dans l'historique des builds, une icône bleu doit apparaître à la fin de la c
 
 Les artefacts logiciels peuvent être produits soit en utilisant maven en ligne de commande (ou au travers de l'IDE), soit en utilisant un outil d'intégration continue tel que Jenkins. Dans cette partie, nous allons étudier différents plugins maven permettant de réaliser des actions liées à la construction d'artefacts logiciels, et qu'il faudra automatiser à l'aide de jenkins. 
 
-### Création d'un jar exécutable via maven
+#### Création d'un jar exécutable via maven
 
 Pour construire des artefacts vous allez ajouter un bloc \<build> dans le bloc \<project> de votre POM. Générez un jar exécutable grâce au plugin maven-jar-plugin qui vous permettra de définir un manifest :
 http://maven.apache.org/plugins/maven-jar-plugin/ (regardez les exemples « creating an executable JAR file »).
 
 Lancez _mvn clean install_ et exécutez le nouveau jar généré se trouvant dans le dossier target. Commitez et pushez vos changements, relancez le build Jenkins, allez dans le « last build » et cliquez sur le « Module Builds » listé : la liste des éléments produits doit être visible et téléchargeable.
 
-### Exécution de test via maven
+#### Exécution de test via maven
 Utilisez le plugin maven-surefire-plugin pour exécuter les tests du projet lors de la commande _mvn clean install_, cf.: http://maven.apache.org/surefire/maven-surefire-plugin/
 Commitez le POM sur github (avec quelques tests) et relancez un build sur Jenkins afin d'observer les évolutions apportées.
 
-### Création d'archives des sources et des exécutables
+#### Création d'archives des sources et des exécutables
 Le plugin maven-assembly-plugin permet de créer des archives. Ce plugin est notamment très utile pour créer des archives des sources ou des fichiers exécutables, cf : http://maven.apache.org/plugins/maven-assembly-plugin/ (voir aussi: https://medium.com/@kasunpdh/using-the-maven-assembly-plugin-to-build-a-zip-distribution-5cbca2a3b052)
 
 Étudiez et adaptez l'utilisation de ce plugin dans le projet suivant :
