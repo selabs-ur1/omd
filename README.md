@@ -426,7 +426,7 @@ Voila, votre runner est maintenant prêt!
 
 GitLab utilise le fichier ".gitlab-ci.yml" pour faire fonctionner le pipeline de l'Intégration Continue pour chaque projet. Le fichier ".gitlab-ci.yml" doit se trouver dans le répertoire racine de votre projet. 
 
-    java:
+       java:
   	stage: test
 	script:
     	- mvn verify
@@ -436,5 +436,32 @@ GitLab utilise le fichier ".gitlab-ci.yml" pour faire fonctionner le pipeline de
       			junit:
         		- target/surefire-reports/TEST-*.xml
         		- target/failsafe-reports/TEST-*.xml
+			
+	test-jdk11:
+	  stage: test
+	  image: maven:3.6.3-jdk-11
+	  script:
+	    - 'mvn $MAVEN_CLI_OPTS clean org.jacoco:jacoco-maven-plugin:prepare-agent test jacoco:report'
+	  artifacts:
+	    paths:
+	      - target/site/jacoco/jacoco.xml
+
+	coverage-jdk11:
+	  # Must be in a stage later than test-jdk11's stage.
+	  # The `visualize` stage does not exist by default.
+	  # Please define it first, or chose an existing stage like `deploy`.
+	  stage: visualize
+	  image: haynes/jacoco2cobertura:1.0.4
+	  script:
+	    # convert report from jacoco to cobertura
+	    - 'python /opt/cover2cover.py target/site/jacoco/jacoco.xml src/main/java > target/site/cobertura.xml'
+	    # read the <source></source> tag and prepend the path to every filename attribute
+	    - 'python /opt/source2filename.py target/site/cobertura.xml'
+	  needs: ["test-jdk11"]
+	  dependencies:
+	    - test-jdk11
+	  artifacts:
+	    reports:
+	      cobertura: target/site/cobertura.xml
 
 Definissez un pipeline similaire à celui définit pour Jenkins dans la partie précédente. Aidez vous de la [documentation](https://docs.gitlab.com/ee/ci/yaml/).
