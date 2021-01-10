@@ -78,16 +78,16 @@ Vous obtiendrez l’architecture suivante :
     |   |           `-- esir
     |   |               `-- mdi
     |   |                   `-- ci
-    |   |                   	`-- tpmaven
-    |   |	                    `-- App.java
+    |   |                       `-- tpmaven
+    |   |                           `-- App.java
     |   `-- test
     |       `-- java
     |           `-- fr
     |               `-- esir
     | 	              `-- mdi
-    |		            `--ci
-    |                      	`-- tpmaven
-    |                       		`-- AppTest.java
+    |		          `--ci
+    |                         `-- tpmaven
+    |                             `-- AppTest.java
     `-- pom.xml
 
 Le fichier pom.xml est le fichier de configuration maven du projet. Il décrit les caractéristiques du projet (son nom, sa famille, sa version, etc.), ainsi que les processus (les « builds ») à exécuter (la compilation, l'exécution des tests, la création d'archive, etc.).
