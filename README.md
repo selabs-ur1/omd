@@ -342,7 +342,7 @@ Dans l'historique des builds, une icône bleu doit apparaître à la fin de la c
 
 ### Packager des artefacts logiciels avec maven
 
-Comme expliqué précédemment, ces artefacts logiciels peuvent être produits soit en utilisant directement maven en ligne de commande, soit en utilisant Jenkins. Nous allons dans cette dernière partie étudier différents plugins maven permet de réaliser de nombreuses actions de liées à la construction d'artefacts logiciels. 
+Les artefacts logiciels peuvent être produits soit en utilisant maven en ligne de commande (ou au travers de l'IDE), soit en utilisant un outil d'intégration continue tel que Jenkins. Dans cette partie, nous allons étudier différents plugins maven permettant de réaliser des actions liées à la construction d'artefacts logiciels, et qu'il faudra automatiser à l'aide de jenkins. 
 
 ### Création d'un jar exécutable via maven
 
