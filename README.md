@@ -109,7 +109,7 @@ Votre projet est configuré.
 
 ## Partie 2 : Gestion des dépendances
 
-Intégrer à votre projet le fichier [ici](https://raw.githubusercontent.com/barais/tpmavenitext/master/src/main/java/fr/istic/demo/sir/FirstPdf.java).
+Intégrer à votre projet le fichier [ici](https://gist.github.com/combemale/54a8f2d29aba087627e6bf73eba3baa3).
 
 Vous verrez que le code ne compile pas car il manque une dépendances. Intégrez maintenant la dépendance à itext. 
 
