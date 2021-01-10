@@ -222,6 +222,8 @@ A quel point les développeurs ont réalisé des tests unitaires ? Quelles parti
             </plugin>
         </plugins>
     </reporting>
+    
+Ecrivez quelques tests en Junit (_/tpmaven/src/test/java/fr/esir/mdi/ci/tpmaven/FirstPdfTest.java_), et voyez qu'elle couverture de code vous obtenez. 
 
 Lien utile : http://www.mojohaus.org/cobertura-maven-plugin/usage.html
 
