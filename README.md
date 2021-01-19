@@ -413,14 +413,11 @@ Une fois cette opération terminé vous devriez voir dans votre projet votre run
 Settings / CI/CD / Runners
 
 Lancer votre Runner à l’aide de la commande
-sudo docker run -d --name gitlab-runner --restart always \
--v /srv/gitlab-runner/config:/etc/gitlab-runner \
--v /var/run/docker.sock:/var/run/docker.sock \
-gitlab/gitlab-runner:latest
-3.bis/ Retourner dans Settings / CI/CD / Specific Runners, Setup a specific Runner manually
-et configurer votre Runner pour accepter les jobs non tagger : Cliquer sur le crayon pour
-éditer votre runner, puis cochez la case Run untagged jobs.
-Voila, votre runner est maintenant prêt!
+sudo docker run -d --name gitlab-runner --restart always -v /srv/gitlab-runner/config:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
+
+Retourner dans Settings / CI/CD / Specific Runners, Setup a specific Runner manually, et configurer votre Runner pour accepter les jobs non tagger : Cliquer sur le crayon pour éditer votre runner, puis cochez la case Run untagged jobs. Voila, votre runner est maintenant prêt!
+
+Vous pouvez explorer le menu Settings / Integration et ajouter l’envoie d’un email automatique à votre adresse mail lorsque vous effectuer un push sur le repository, et lorsque votre pipeline de CI/CD obtient une erreur.
 
 ### Configuration de votre pipeline
 
