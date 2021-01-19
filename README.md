@@ -251,7 +251,7 @@ Quels sont les deux nouveaux rapports générés ? Qu'est ce que le rapport 'CPD
 
 Combien et quels fichiers ont été modifiés par un développeur ? Commiter votre projet sur github ou sur le gitlab de l’istic. 
 
-Ajoutez à la section \<reporting> le plugin changelog :
+Ajoutez à la section \<reporting> le plugin changelog, et définissez la section \<scm> en fonction de votre application et gestionnaire de version :
     
     <project>
         <reporting>
@@ -264,7 +264,7 @@ Ajoutez à la section \<reporting> le plugin changelog :
         </reporting>
 
         <scm>
-            <connection>scm:svn:svn://IPSERVEUR/repository1/monappli-web</connection>
+            <connection>scm:svn:svn://IPSERVEUR/repository1/monappli</connection>
             <url>http://IPSERVEUR/svn/monappli-web</url>
         </scm>
     </project>
