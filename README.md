@@ -379,7 +379,7 @@ Pour cela, il existe deux solutions:
 
 Configurer vos builds Jenkins pour qu'ils se construisent automatiquement à 1h du matin tous les jours.
 
-## Partie 7 : Intégration avec GitLab CI
+## Partie 8 : Intégration avec GitLab CI
 
 Pour cette partie, votre projet devra être sur GitLab. 
 
