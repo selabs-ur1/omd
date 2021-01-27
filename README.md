@@ -127,7 +127,7 @@ Votre IDE va downloader la dépendance et la mettre automatiquement dans votre c
 
 ## Partie 3 : Spécialisation du processus de build
 
-Imaginons que vous souhaitiez ajouter une tâche dans le processus de build. Par exemple, compilez votre code source avec la version Java 1.8. Ajoutez la section suivant à votre fichier pom.xml
+Imaginons que vous souhaitiez ajouter une tâche dans le processus de build. Par exemple, compilez votre code source avec la version Java 11. Ajoutez la section suivant à votre fichier pom.xml (essayez en changant de version) :
 
     <build>
         <plugins>
@@ -136,8 +136,8 @@ Imaginons que vous souhaitiez ajouter une tâche dans le processus de build. Par
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
               <!-- or whatever version you use -->
-              <source>1.8</source>
-              <target>1.8</target>
+              <source>11</source>
+              <target>11</target>
             </configuration>
           </plugin>
         </plugins>
