@@ -200,9 +200,10 @@ Quelle est la norme de codage à laquelle se réfère le rapport par défaut ? C
     <reporting>
 		<plugins>
 			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>	<artifactId>maven-jxr-plugin</artifactId>  
-                <version>3.0.0</version>
-            </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>  
+				<version>3.0.0</version>
+			</plugin>
 		</plugins>
     </reporting>
 
@@ -213,19 +214,53 @@ Désormais vous pouvez passer du rapport CheckStyle au code source en cliquant s
 ### Couverture des tests
 
 A quel point les développeurs ont réalisé des tests unitaires ? Quelles parties de l'application n'ont pas été testées ?
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </reporting>
-    
 Ecrivez quelques tests en Junit (_/tpmaven/src/test/java/fr/esir/mdi/ci/tpmaven/FirstPdfTest.java_), et voyez qu'elle couverture de code vous obtenez. 
 
-Lien utile : http://www.mojohaus.org/cobertura-maven-plugin/usage.html
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.6</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution> <!-- attached to Maven test phase -->
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/jacoco-report</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+    
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<!-- select non-aggregate reports -->
+							<report>report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
+Lien utile : https://www.eclemma.org/jacoco/
 
 ### Identifier des patterns d'erreur avec PMD
 
@@ -264,7 +299,7 @@ Ajoutez à la section \<reporting> le plugin changelog, et définissez la sectio
         </reporting>
 
         <scm>
-            <connection>scm:svn:svn://IPSERVEUR/repository1/monappli</connection>
+            <connection>scm:git:git://IPSERVEUR/repository1/monappli</connection>
             <url>http://IPSERVEUR/svn/monappli-web</url>
         </scm>
     </project>
