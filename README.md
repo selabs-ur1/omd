@@ -416,7 +416,7 @@ Configurer vos builds Jenkins pour qu'ils se construisent automatiquement à 1h 
 
 ## Partie 8 : Intégration avec GitLab CI
 
-Pour cette partie, votre projet devra être sur GitLab. 
+Pour cette partie, votre projet devra être sur GitLab (e.g., https://gitlab.istic.univ-rennes1.fr), avec la permission d'exécuter des pipelines (Settings > General > Permissions > Pipelines). 
 
 Quelques définitions préliminaires des concepts de [GitLab CI](https://docs.gitlab.com/ee/ci/README.html) : 
 - [pipeline](https://docs.gitlab.com/ee/ci/pipelines/) : un ensemble de _jobs_ (quoi faire?), chacun a réaliser lors d'un _stage_ (quand le faire?).
