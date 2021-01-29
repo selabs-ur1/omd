@@ -427,6 +427,8 @@ dans un pipeline. GitLab fournit des runners à utiliser, mais vous pouvez aussi
 
 ### Installation de votre runner 
 
+Pour installer votre runner, veillez vous référer à la [documentation](https://docs.gitlab.com/runner/install/). Vous pouvez l'installer en local, ou via un conteneur (e.g. docker).
+
 Installer un runner docker sur votre pc en suivant les instructions :
 https://docs.gitlab.com/runner/install/docker.html
 
