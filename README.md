@@ -483,7 +483,7 @@ Créez un fichier ".gitlab-ci.yml", et essayez le contenue suivant. Vosu pouvez 
 
 Voici un autre exemple : 
 
-       java:
+	java:
   	stage: test
 	script:
     	- mvn verify
@@ -520,5 +520,22 @@ Voici un autre exemple :
 	  artifacts:
 	    reports:
 	      cobertura: target/site/cobertura.xml
+	      
+	sonarqube-check:
+	  image: maven:3.6.3-jdk-11
+	  variables:
+	    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+	    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+	  cache:
+	    key: "${CI_JOB_NAME}"
+	    paths:
+	      - .sonar/cache
+	  script:
+	    - mvn verify sonar:sonar -Dsonar.qualitygate.wait=true
+	  allow_failure: true
+	  only:
+	    - merge_requests
+	    - master
+	    - develop
 
 Aidez vous de la [documentation](https://docs.gitlab.com/ee/ci/yaml/), et définissez un pipeline similaire à celui que vous avez définit sur Jenkins dans la partie précédente.
