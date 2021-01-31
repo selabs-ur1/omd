@@ -329,12 +329,12 @@ Le répertoire /target/site situé dans votre projet contient maintenant trois r
 Pour cette partie, vous pouvez utiliser à votre convenance soit [la forge Gitlab](https://gitlab.istic.univ-rennes1.fr/) fournie par la plate-forme ISTIC ESIR, soit [GitHub](https://github.com/). Mettez votre code sur github (ou gitlab):
 - créez un nouveau repository via l'interface github/gitlab
 - liez le dépôt local au distant : 
-    
-    git remote add origin https://github.com/login/nomRepo.git
+
+	git remote add origin https://github.com/login/nomRepo.git
 
 - mettez votre code sur ce dépôt : 
-    
-    git push origin master (en cas de non-fast-forward : git pull origin master)
+
+	git push origin master (en cas de non-fast-forward : git pull origin master)
 
 Initiez vous aux principales [commandes Git](https://education.github.com/git-cheat-sheet-education.pdf) (en ligne de commande, et au travers de votre IDE) :
 
