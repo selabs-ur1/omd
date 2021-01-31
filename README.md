@@ -466,7 +466,7 @@ Vous pouvez explorer le menu Settings / Integration et ajouter l’envoie d’un
 
 GitLab utilise le fichier ".gitlab-ci.yml" pour faire fonctionner le pipeline de l'Intégration Continue pour chaque projet. Le fichier ".gitlab-ci.yml" doit se trouver dans le répertoire racine de votre projet. 
 
-Créez un fichier ".gitlab-ci.yml", et essayez le contenue suivant. Vosu pouvez ensuite explorer votre pipeline (CI/CD / Pipelines). 
+Créez un fichier ".gitlab-ci.yml" avec le contenu suivant, et explorez votre pipeline dans le menu CI/CD / Pipelines. 
 
 	job1:
 	    stage: build 
@@ -481,61 +481,4 @@ Créez un fichier ".gitlab-ci.yml", et essayez le contenue suivant. Vosu pouvez 
 	    script:
 	    - echo "foobar"
 
-Voici un autre exemple : 
-
-	java:
-  	stage: test
-	script:
-    	- mvn verify
-  	artifacts:
-    		when: always
-    		reports:
-      			junit:
-        		- target/surefire-reports/TEST-*.xml
-        		- target/failsafe-reports/TEST-*.xml
-			
-	test-jdk11:
-	  stage: test
-	  image: maven:3.6.3-jdk-11
-	  script:
-	    - 'mvn $MAVEN_CLI_OPTS clean org.jacoco:jacoco-maven-plugin:prepare-agent test jacoco:report'
-	  artifacts:
-	    paths:
-	      - target/site/jacoco/jacoco.xml
-
-	coverage-jdk11:
-	  # Must be in a stage later than test-jdk11's stage.
-	  # The `visualize` stage does not exist by default.
-	  # Please define it first, or chose an existing stage like `deploy`.
-	  stage: visualize
-	  image: haynes/jacoco2cobertura:1.0.4
-	  script:
-	    # convert report from jacoco to cobertura
-	    - 'python /opt/cover2cover.py target/site/jacoco/jacoco.xml src/main/java > target/site/cobertura.xml'
-	    # read the <source></source> tag and prepend the path to every filename attribute
-	    - 'python /opt/source2filename.py target/site/cobertura.xml'
-	  needs: ["test-jdk11"]
-	  dependencies:
-	    - test-jdk11
-	  artifacts:
-	    reports:
-	      cobertura: target/site/cobertura.xml
-	      
-	sonarqube-check:
-	  image: maven:3.6.3-jdk-11
-	  variables:
-	    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
-	    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
-	  cache:
-	    key: "${CI_JOB_NAME}"
-	    paths:
-	      - .sonar/cache
-	  script:
-	    - mvn verify sonar:sonar -Dsonar.qualitygate.wait=true
-	  allow_failure: true
-	  only:
-	    - merge_requests
-	    - master
-	    - develop
-
-Aidez vous de la [documentation](https://docs.gitlab.com/ee/ci/yaml/), et définissez un pipeline similaire à celui que vous avez définit sur Jenkins dans la partie précédente.
+Voici également [un autre exemple](https://gist.github.com/combemale/fb68a577d91a6594594a145b162aeb9b). Aidez vous de cet exemple et de la [documentation](https://docs.gitlab.com/ee/ci/yaml/) pour définir un pipeline similaire à celui que vous avez définit sur Jenkins dans la partie précédente.
