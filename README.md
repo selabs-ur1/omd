@@ -465,7 +465,24 @@ Vous pouvez explorer le menu Settings / Integration et ajouter l’envoie d’un
 ### Configuration de votre pipeline
 
 GitLab utilise le fichier ".gitlab-ci.yml" pour faire fonctionner le pipeline de l'Intégration Continue pour chaque projet. Le fichier ".gitlab-ci.yml" doit se trouver dans le répertoire racine de votre projet. 
-<!--
+
+Créez un fichier ".gitlab-ci.yml", et essayez le contenue suivant. Vosu pouvez ensuite explorer votre pipeline (CI/CD / Pipelines). 
+
+	job1:
+	    stage: build 
+	    script:
+	    - echo "foo"
+	job2:
+	    stage: test 
+	    script:
+	    - echo "bar"
+	job3:
+	    stage: deploy 
+	    script:
+	    - echo "foobar"
+
+Voici un autre exemple : 
+
        java:
   	stage: test
 	script:
@@ -503,21 +520,5 @@ GitLab utilise le fichier ".gitlab-ci.yml" pour faire fonctionner le pipeline de
 	  artifacts:
 	    reports:
 	      cobertura: target/site/cobertura.xml
--->
-
-Créez un fichier ".gitlab-ci.yml", et essayez le contenue suivant. Vosu pouvez ensuite explorer votre pipeline (CI/CD / Pipelines). 
-
-	job1:
-	    stage: build 
-	    script:
-	    - echo "foo"
-	job2:
-	    stage: test 
-	    script:
-	    - echo "bar"
-	job3:
-	    stage: deploy 
-	    script:
-	    - echo "foobar"
 
 Aidez vous de la [documentation](https://docs.gitlab.com/ee/ci/yaml/), et définissez un pipeline similaire à celui que vous avez définit sur Jenkins dans la partie précédente.
