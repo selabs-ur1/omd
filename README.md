@@ -336,17 +336,17 @@ Pour cette partie, vous pouvez utiliser à votre convenance soit [la forge Gitla
     
     git push origin master (en cas de non-fast-forward : git pull origin master)
 
-Initiez vous aux principales commandes Git :
+Initiez vous aux principales [commandes Git](https://education.github.com/git-cheat-sheet-education.pdf) (en ligne de commande, et au travers de votre IDE) :
 
 - créez deux branches, passez de l'une a l'autre dans votre repo local (_git checkout_), et faite des modifications (dont certaines en conflit entre les deux branches) dans chacune d'entre elles (e.g., rajoutez des commentaires, des tests, etc.)
 - mergez successivement les deux branches avec la branche master.  Le merge de la deuxème branche devrait soulever des conflits que vous devez résoudre manuellement. Résolvez le conflit en éditant le fichier en conflit et en enlevant manuellement les <<<<>>>> etc. Ces lignes représentent les lignes en conflits entre vos 2 versions (des deux branches).
 - poussez ces modifications sur le repository. 
 
-Si vous êtes sur Github, vous pouvez aussi vous initier à la création de _pull request_, à l'utilisation de _bots_, etc. 
+Si vous êtes sur Github, vous pouvez aussi vous initier à la création de [_pull request_](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests), à l'utilisation de _bots_ (see [here](https://github.com/mairieli/awesome-se-bots)), etc. 
 
 Vous pouvez annuler tous les commits précédents (_git revert_ ...) avant de poursuivre le TP. 
 
-Vous allez dans la suite étudier les outils d'intégration continue Sonar et Jenkins/GitLab CI. La différence entre ces deux outils est simple : Sonar est un outil d'assurance qualité tandis que Jenkins est un outil de « release engineering ». Les deux sont complémentaires.
+> Vous allez dans la suite étudier les outils d'intégration continue Sonar et Jenkins/GitLab CI. La différence entre ces deux outils est simple : Sonar est un outil d'assurance qualité tandis que Jenkins est un outil de « release engineering ». Les deux sont complémentaires.
 
 ## Partie 6 : Intégration avec l'outil Sonar
 
