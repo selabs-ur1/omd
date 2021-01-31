@@ -1,6 +1,6 @@
 # Software Development Industrialization
 
-Introduction à la gestion de versions, la gestion de dépendances et l'intégration continue
+Tutoriel d'introduction à la gestion de dépendances, de versions, et de l'intégration continue.
 
 ## Objectifs du TP
 
