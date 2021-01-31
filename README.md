@@ -416,7 +416,7 @@ Configurer vos builds Jenkins pour qu'ils se construisent automatiquement à 1h 
 
 ## Partie 8 : Intégration avec GitLab CI
 
-Pour cette partie, votre projet devra être sur GitLab (e.g., https://gitlab.istic.univ-rennes1.fr), avec la permission d'exécuter des pipelines (Settings > General > Permissions > Pipelines). 
+Pour cette partie, votre projet devra hébergé sur GitLab (e.g., https://gitlab.istic.univ-rennes1.fr), avec la permission d'exécuter des pipelines (Settings / General / Permissions / Pipelines). 
 
 Quelques définitions préliminaires des concepts de [GitLab CI](https://docs.gitlab.com/ee/ci/README.html) : 
 - [pipeline](https://docs.gitlab.com/ee/ci/pipelines/) : un ensemble de _jobs_ (quoi faire?), chacun a réaliser lors d'un _stage_ (quand le faire?).
@@ -427,30 +427,36 @@ dans un pipeline. GitLab fournit des runners à utiliser, mais vous pouvez aussi
 
 ### Installation de votre runner 
 
-Pour installer votre runner, veillez vous référer à la [documentation](https://docs.gitlab.com/runner/install/). Vous pouvez l'installer en local, ou via un conteneur (e.g. docker).
+Pour installer votre runner, veillez vous référer à la [documentation](https://docs.gitlab.com/runner/install/). Vous pouvez l'installer en local, ou via un conteneur (e.g. docker). Vous aurez besoin des informations présent sur votre projet dans gitlab : Settings / CI/CD / Specific Runners, Setup
+a specific Runner manually.
+
+- Pour l'URL copiez coller ce que vous trouverez à l’adresse précédente
+- Pour le token copiez coller ce que vous trouverez à l’adresse précédente
+- Pour le executor : _docker_ ou _shell_ en fonction
+
+#### En local: 
+
+	sudo curl --output /usr/local/bin/gitlab-runner "https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-darwin-amd64" 
+	gitlab-runner register
+	gitlab-runner install
+	gitlab-runner start
+
+#### En local, via docker: 
 
 Installer un runner docker sur votre pc en suivant les instructions :
 https://docs.gitlab.com/runner/install/docker.html
 
+Lancer votre Runner à l’aide de la commande
+sudo docker run -d --name gitlab-runner --restart always -v /srv/gitlab-runner/config:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
+
 Si vous ne possédez pas docker, veuillez suivre les instructions d’installation de Docker pour votre système d’exploitation https://docs.docker.com/get-docker/. 
 Installer ensuite le gitlab
 Runner , puis faire la partie register runner
-https://docs.gitlab.com/runner/register/index.html#docker . Vous aurez besoin des
-informations présent sur votre projet dans gitlab : Settings / CI/CD / Specific Runners, Setup
-a specific Runner manually.
+https://docs.gitlab.com/runner/register/index.html#docker . 
 
-- Pour le URL copiez coller ce que vous trouverez à l’adresse précédente
-- Pour le token copiez coller ce que vous trouverez à l’adresse précédente
-- Pour le executor : docker
-- Pour la description : ce que vous voulez
-- Pour le défaut docker image entrer python:3.9.0
-- Pour le reste vous pouvez mettre ce que vous voulez.
+### Configuration de votre runner sur votre projet Gitlab
 
-Une fois cette opération terminé vous devriez voir dans votre projet votre runner apparaître :
-Settings / CI/CD / Runners
-
-Lancer votre Runner à l’aide de la commande
-sudo docker run -d --name gitlab-runner --restart always -v /srv/gitlab-runner/config:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
+Une fois l'installation de votre runner terminée, vous devriez le voir apparaître dans votre projet sur Gitlab : Settings / CI/CD / Runners.
 
 Retourner dans Settings / CI/CD / Specific Runners, Setup a specific Runner manually, et configurer votre Runner pour accepter les jobs non tagger : Cliquer sur le crayon pour éditer votre runner, puis cochez la case Run untagged jobs. Voila, votre runner est maintenant prêt!
 
@@ -499,4 +505,19 @@ GitLab utilise le fichier ".gitlab-ci.yml" pour faire fonctionner le pipeline de
 	      cobertura: target/site/cobertura.xml
 -->
 
-Definissez un pipeline similaire à celui définit pour Jenkins dans la partie précédente. Aidez vous pour cela de la [documentation](https://docs.gitlab.com/ee/ci/yaml/).
+Créez un fichier ".gitlab-ci.yml", et essayez le contenue suivant. Vosu pouvez ensuite explorer votre pipeline (CI/CD / Pipelines). 
+
+	job1:
+	    stage: build 
+	    script:
+	    - echo "foo"
+	job2:
+	    stage: test 
+	    script:
+	    - echo "bar"
+	job3:
+	    stage: deploy 
+	    script:
+	    - echo "foobar"
+
+Aidez vous de la [documentation](https://docs.gitlab.com/ee/ci/yaml/), et définissez un pipeline similaire à celui que vous avez définit sur Jenkins dans la partie précédente.
