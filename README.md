@@ -17,7 +17,7 @@ Introduction à la gestion de versions, la gestion de dépendances et l'intégra
 
 ### Environnement 
 
-Selon le 3ième lien donnée ci-dessus, Maven est essentiellement un outil de gestion et de compréhension de projet. Maven offre des fonctionnalités de : construction, compilation ; documentation ; rapport ; gestion des dépendances ; gestion des sources ; mise à jour de projet ; déploiement.
+Maven est essentiellement un outil de gestion et de compréhension de projet. Maven offre des fonctionnalités de : construction, compilation ; documentation ; rapport ; gestion des dépendances ; gestion des sources ; mise à jour de projet ; déploiement.
 
 Utiliser Maven consiste à définir dans chaque projet à gérer un script Maven appelés POM : *pom.xml*. Nous allons voir dans ce TP qu'un POM permet de définir des dépendances, des configurations pour notamment construire, tester, mettre en paquet des artefacts logiciels (exécutables, tests, documentations, archives, etc.). Pour cela, Maven récupère sur des dépôts maven les outils dont il a besoin pour exécuter le POM. Utiliser Maven requière donc : une (bonne) connexion à Internet car il télécharge beaucoup de choses ; de l'espace disque pour la même raison. Les artefacts qu'il télécharge sont originellement stockés dans le dossier *.m2* dans votre home-dir. Ce dossier contient également le fichier de configuration Maven : settings.xml.
 
