@@ -8,6 +8,17 @@ Introduction à la gestion de versions, la gestion de dépendances et l'intégra
 - Utiliser Git pour sauvegarder et collaborer sur le code source de votre projet, au travers des forges telles que Github et Gitlab
 - Utiliser un système d’intégration continue tel que Sonar, Jenkins et Gitlab CI
 
+## Prérequis : 
+
+Vérifiez que vous avez installé sur votre machine de développement :
+
+- Java (JDK) 11+, e.g. [Oracle JSE](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) (avec la variable d'environnement JAVA_HOME bien configurée)
+- [Maven](http://maven.apache.org/install.html)
+- [Git](https://git-scm.com/download/)
+- un IDE Java tel qu'Eclipse, IntelliJ IDEA, NetBeans, VS Code, Xcode, etc.
+
+Les examples de commandes indiquées dans ce tutorial sont données pour être exécutées sous Linux. Toutefois, elles trouvent normalement leurs contre parties sous Windows. Vous pouvez également utiliser [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.1) ou une machine virtuelle (e.g., [VirtualBox](https://www.virtualbox.org/)).
+
 ## Partie 1 : Utilisation de Maven
 
 ### Liens utiles
