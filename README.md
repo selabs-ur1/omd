@@ -1,4 +1,4 @@
-# Software Development Industrialization
+# Modern (software) Development Industrialization
 
 Tutoriel d'introduction à la gestion de dépendances, de versions, et de l'intégration continue.
 
