@@ -122,7 +122,7 @@ Votre projet est configuré.
 
 ## Partie 2 : Gestion des dépendances
 
-Intégrer à votre projet l'application [FirstPDF](https://github.com/selabs-ur1/mdi/blob/main/FirstPdf.java).
+Intégrer à votre projet l'application [FirstPDF](./FirstPdf.java).
 
 Vous verrez que le code ne compile pas car il manque une dépendances. Intégrez maintenant la dépendance (_\<dependencies>...\<dependencies>_) à itext dans le fichier _pom.xml_.
 
