@@ -412,7 +412,7 @@ Commitez les modifications sur GitHub et relancez un build sur Jenkins afin d'ob
 
 - https://wiki.jenkins-ci.org/display/JENKINS/Sonar+plugin
 - https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin
-- https://wiki.jenkins-ci.org/display/JENKINS/PMD+Plugin
+- https://github.com/jenkinsci/warnings-ng-plugin
 
 Attention pour Cobertura, vous avez besoin de définir le format de sortie en xml.
 Pour cela, il existe deux solutions:
