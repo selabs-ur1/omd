@@ -189,7 +189,7 @@ Puis lancez en ligne de commande (au même niveau que le fichier *pom.xml*) : _m
 
 Eclipse permet de lancer cette commande maven sans passer par la ligne de commande (voir menu run d'Eclipse). 
 
-### Valider la qualité du code avec le plugin checkstyle
+### Valider la qualité du code avec Checkstyle
 
 Ajoutez à la section \<plugins> dans \<reporting> le plugin checkstyle :
 
@@ -222,7 +222,7 @@ Lien utile : http://maven.apache.org/plugins/maven-jxr-plugin/
 Quelle est la valeur ajoutée de ce plugin ? En particulier, montrez sa complémentarité avec CheckStyle.
 Désormais vous pouvez passer du rapport CheckStyle au code source en cliquant sur le numéro de ligne associé au commentaire CheckStyle.
 
-### Couverture des tests
+### Couverture des tests avec JaCoCo
 
 A quel point les développeurs ont réalisé des tests unitaires ? Quelles parties de l'application n'ont pas été testées ?
 Ecrivez quelques tests en JUnit (_/tpmaven/src/test/java/fr/esir/mdi/ci/tpmaven/FirstPdfTest.java_), et voyez quelle couverture de code vous obtenez. 
@@ -408,7 +408,7 @@ pour l'utiliser dans votre projet afin de créer un zip des sources et un autre 
 
 Commitez les modifications sur GitHub et relancez un build sur Jenkins afin d'observer les évolutions apportées. 
 
-### Utilisation de sonar, cobertura et pmd
+### Utilisation de Sonar, JaCoCo et PMD
 
 - https://plugins.jenkins.io/sonar/
 - https://plugins.jenkins.io/jacoco/
