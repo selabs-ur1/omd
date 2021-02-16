@@ -373,7 +373,6 @@ Démarrez Jenkins :
 Allez dans votre navigateur : http://localhost:9900/.
 
 Configurez Jenkins :
-- Commencez par cliquer sur « enable auto refresh »
 - Allez dans le menu « Jenkins → Manage Jenkins → Global Tool Configuration »
 Cliquez sur « Add JDK ». Saisissez un nom quelconque permettant d'identifier la JDK. Cochez « I agree... ». Ignorez le message d'erreur « requires Oracle account »
 - Cliquez sur « Add Maven ». Saisissez un nom quelconque permettant d'identifier cette version de Maven.
