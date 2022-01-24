@@ -50,14 +50,14 @@ Dans Eclipse:
 
 En ligne de commande (non nécessaire si vous l’avez fait depuis Eclipse):
 
-    mvn archetype:create \
+    mvn archetype:generate \
         -DgroupId=[your project's group id] \
         -DartifactId=[your project's artifact id] \
         -DarchetypeArtifactId=maven-archetype-quickstart
 
 Ou simplement :
 
-    mvn archetype:create \
+    mvn archetype:generate \
         -DgroupId=[your project's group id] \
         -DartifactId=[your project's artifact id]
 
