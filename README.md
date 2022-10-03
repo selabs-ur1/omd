@@ -77,7 +77,7 @@ Vous obtenez la structure de projet jointe
 Par exemple si vous exécutez la commande
     
     mvn archetype:generate \
-        -DgroupId=fr.esir.mdi.ci \
+        -DgroupId=fr.esir.omd.ci \
         -DartifactId=tpmaven
 
 Vous obtiendrez l’architecture suivante :
@@ -87,7 +87,7 @@ Vous obtiendrez l’architecture suivante :
     |   |   `-- java
     |   |       `-- fr
     |   |           `-- esir
-    |   |               `-- mdi
+    |   |               `-- omd
     |   |                   `-- ci
     |   |                       `-- tpmaven
     |   |                           `-- App.java
@@ -95,7 +95,7 @@ Vous obtiendrez l’architecture suivante :
     |       `-- java
     |           `-- fr
     |               `-- esir
-    | 	                `-- mdi
+    | 	                `-- omd
     |		            `--ci
     |                           `-- tpmaven
     |                               `-- AppTest.java
@@ -225,7 +225,7 @@ Désormais vous pouvez passer du rapport CheckStyle au code source en cliquant s
 ### Couverture des tests avec JaCoCo
 
 A quel point les développeurs ont réalisé des tests unitaires ? Quelles parties de l'application n'ont pas été testées ?
-Ecrivez quelques tests en JUnit (_/tpmaven/src/test/java/fr/esir/mdi/ci/tpmaven/FirstPdfTest.java_), et voyez quelle couverture de code vous obtenez. 
+Ecrivez quelques tests en JUnit (_/tpmaven/src/test/java/fr/esir/omd/ci/tpmaven/FirstPdfTest.java_), et voyez quelle couverture de code vous obtenez. 
 
 	<build>
 		<plugins>
